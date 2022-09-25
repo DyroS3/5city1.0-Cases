@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <link rel='stylesheet' href='style.css'>
+    </head>
+    <body>
+        <div id="app" class="container">		
+            <div v-bind:style="{display: summary_display}" id="summary" class="case-summary-container">
+                <div class="case-summary">
+                    <div class="case-summary-content">
+                        <div class="case-drop-name">
+                            <p>{{items[rolled].label}}</p>
+                            <p>{{items[rolled].desc}}</p>
+                        </div>
+                    </div>
+					
+                    <div class="case-drop-img"><img v-bind:src=items[rolled].img>
+					
+					</div>
+					
+                    <div class="case-buttons">
+                        <button class="purple" @click="summaryFade('out')">OTWÓRZ JESZCZE RAZ</button>
+                        <button class="red" @click="close()">WYJDŹ</button>
+                    </div>
+                </div>
+            </div>
+			
+            <div class="case-container">
+                <div class="case-name">
+					{{chest_label}}
+					<span>Pozostało: {{ cases }}</span>
+				</div>
+				
+                <div class="case-arrow">
+					<svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 0 24 24" width="40px" fill="#000000">
+						<path d="M0 0h24v24H0V0z" fill="none"/><path d="M10 8.64L15.27 12 10 15.36V8.64M8 5v14l11-7L8 5z"/>
+					</svg>
+				</div>
+				
+                <div id="arrow" class="case-arrow-inv">
+				
+				</div>
+				
+                <div class="case-main">
+                    <div class="case-overlay"></div>
+                    <div class="case-items" id='items' ref="items">
+					
+                    </div>
+                </div>
+				
+                <button @click="open()" id='btn' ref="btn">OTWÓRZ</button>
+            </div>
+            <h1>Przedmioty które wylosowałeś będą dostępne w <b>Ekwipunku</b></h1>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+        <script src="app.js"></script>
+    </body>
+</html>
